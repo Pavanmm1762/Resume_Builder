@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Page</title>
-    <link rel="stylesheet" href="/Resume Builder/main.css">
+    <link rel="stylesheet" href="/Resume_Builder/main.css">
 </head>
 <body>
     <nav class="navbar bar-white">
@@ -29,7 +29,7 @@
     </nav>
 
 
-    <section id="about-sc" class="">
+    <section id="about-sc" class="non-print-area">
         <div class="container">
             <div class="about-cnt"> 
                 <form action="" class="cv-form" id="cv-form">
@@ -70,7 +70,7 @@
                                     <div class="form-elem">
                                         <label for="" class="form-label">Your Image</label>
                                         <input type="file" name="img" id=""
-                                        class="form-control img" accept="image/*" onchange="">
+                                        class="form-control img" accept="image/*" onchange="previewImage()">
                                     </div>
 
                                     <div class="form-elem">
@@ -95,7 +95,7 @@
                                 <div class="cols-3">
                                     <div class="form-elem">
                                         <label for="" class="form-label">Email</label>
-                                        <input type="text" name="email" class="form-control email" id=""
+                                        <input type="email" name="email" class="form-control email" id=""
                                         onkeyup="generateCV()" placeholder="e.g,abc@gmail.com">
                                         <span class="form-text">
 
@@ -136,7 +136,7 @@
                                         <div class="cols-2">
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">Title</label>
-                                                <input type="text" name="achieve-title" class="form-control achieve-title" id=""
+                                                <input type="text" name="achieve_title" class="form-control achieve_title" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -145,7 +145,7 @@
 
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">Description</label>
-                                                <input type="text" name="achieve-description" class="form-control achieve-description" id=""
+                                                <input type="text" name="achieve_description" class="form-control achieve_description" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -174,7 +174,7 @@
                                         <div class="cols-3">
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">Title</label>
-                                                <input type="text" name="exper-title" class="form-control exper-title" id=""
+                                                <input type="text" name="exper_title" class="form-control exper_title" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -183,7 +183,7 @@
 
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">Company</label>
-                                                <input type="text" name="exper-description" class="form-control exper-description" id=""
+                                                <input type="text" name="exper_description" class="form-control exper_description" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -192,7 +192,7 @@
 
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">Location</label>
-                                                <input type="text" name="exper-loc" class="form-control exper-loc" id=""
+                                                <input type="text" name="exper_loc" class="form-control exper_loc" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -203,7 +203,7 @@
                                         <div class="cols-3">
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">Start Date</label>
-                                                <input type="date" name="exp-start-date" class="form-control exp-start-date" id=""
+                                                <input type="date" name="exp_start_date" class="form-control exp_start_date" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -212,7 +212,7 @@
 
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">End date</label>
-                                                <input type="date" name="exp-end-date" class="form-control exp-end-date" id=""
+                                                <input type="date" name="exp_end_date" class="form-control exp_end_date" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -221,7 +221,7 @@
 
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">Description</label>
-                                                <input type="text" name="exper-descriptions" class="form-control exper-descriptions" id=""
+                                                <input type="text" name="exper_descriptions" class="form-control exper_descriptions" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -249,26 +249,29 @@
                                     <div class="cv-form-row cv-form-row-education">
                                         <div class="cols-3">
                                             <div class="form-elem">
-                                                <label for="First Name" class="form-label">School</label>
-                                                <input type="text" name="edu-school" class="form-control edu-school" id=""
+                                                <label for="First Name" class="form-label">Degree</label>
+                                                <input type="text" name="edu_degree" class="form-control edu_degree" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
                                                 </span>
                                             </div>
 
+                                            
                                             <div class="form-elem">
-                                                <label for="First Name" class="form-label">Degree</label>
-                                                <input type="text" name="edu-degree" class="form-control edu-degree" id=""
+                                                <label for="First Name" class="form-label">School</label>
+                                                <input type="text" name="edu_school" class="form-control edu_school" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
                                                 </span>
                                             </div>
+
+                                           
 
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">Location</label>
-                                                <input type="text" name="edu-city" class="form-control edu-city" id=""
+                                                <input type="text" name="edu_city" class="form-control edu_city" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -279,7 +282,7 @@
                                         <div class="cols-3">
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">Start Date</label>
-                                                <input type="date" name="edu-start-date" class="form-control edu-start-date" id=""
+                                                <input type="date" name="edu_start_date" class="form-control edu_start_date" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -288,7 +291,7 @@
 
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">End date</label>
-                                                <input type="date" name="edu-end-date" class="form-control edu-end-date" id=""
+                                                <input type="date" name="edu_end_date" class="form-control edu_end_date" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -297,7 +300,7 @@
 
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">Description</label>
-                                                <input type="text" name="edu-description" class="form-control edu-description" id=""
+                                                <input type="text" name="edu_description" class="form-control edu_description" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -324,7 +327,7 @@
                                         <div class="cols-3">
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">Project Name</label>
-                                                <input type="text" name="proj-title" class="form-control proj-title" id=""
+                                                <input type="text" name="proj_title" class="form-control proj_title" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -333,7 +336,7 @@
 
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">Project link</label>
-                                                <input type="text" name="proj-link" class="form-control proj-link" id=""
+                                                <input type="text" name="proj_link" class="form-control proj_link" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -342,7 +345,7 @@
 
                                             <div class="form-elem">
                                                 <label for="First Name" class="form-label">Description</label>
-                                                <input type="text" name="proj-description" class="form-control proj-description" id=""
+                                                <input type="text" name="proj_description" class="form-control proj_description" id=""
                                                 onkeyup="generateCV()" placeholder="e.g,pavan">
                                                 <span class="form-text">
         
@@ -386,8 +389,6 @@
             </div>
         </div>
     </section>
-
-
     <section id="preview-sc" class="print-area">
         <div class="container">
             <div class="preview-cnt">
@@ -400,7 +401,7 @@
                             <span class="preview-item-val fw-6" id="fullname_dsp">
                             </span>
                         </div>
-                        <div class="preview-item">
+                        <div class="preview-item preview-itme-2">
                             <span class="preview-item-val text-uppercase fw-6 ls-1" id="designation_dsp">
                             </span>
                         </div>
@@ -472,12 +473,15 @@
         </div>
     </section>
 
-    <section class="print-btn-sc">
+    <section class="print-btn-sc ">
         <div class="container">
             <button type="button" class="print-btn btn btn-primary"
-                 onclick="printcv()">Print CV</button>
+                 onclick="printCV()">Print CV</button>
         </div>
     </section>
+
+  
+  
 
 
 
@@ -490,8 +494,8 @@
     integrity="sha512-bZAXvpVfp1+9AUHQzekEZaXclsgSlAeEnMJ6LfFAvjqYUVZfcuVXeQoN5LhD7Uw0Jy4NCY9q3kbdEXbwhZUmUQ==" 
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- custom js -->
-    <script src="/Resume Builder/script.js"></script>
+    <script src="/Resume_Builder/script.js"></script>
     <!-- app js -->
-    <script src="/Resume Builder/app.js"></script>
+    <script src="/Resume_Builder/app.js"></script>
 </body>
 </html>

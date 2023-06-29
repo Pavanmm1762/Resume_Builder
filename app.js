@@ -1,7 +1,7 @@
 // regex for validation
-const strRegex = /^[a-zA-Z\s] *$/; // containing only letters
+const strRegex = /^[a-zA-Z\s]*$/; // containing only letters
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const phoneRegex = /^[\+]?[]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 /* supports following HTMLElement | null
 456-7890, 123-456-789 String that specifies the ID value.
 075-63546725 */
@@ -42,8 +42,8 @@ const validType = {
         experiencesDsp = document.getElementById('exe_dsp');
     
 // first for the attributes and 2nd for the node lists
-const fetchValues=(attrs, ...nodeLists)=>{
-    let elemattrsCount= nodeLists.length;
+const fetchValues = (attrs, ...nodeLists) => {
+    let elemAttrsCount= nodeLists.length;
     let elemDataCount= nodeLists[0].length;
     let tempDataArr= [];
 
@@ -52,39 +52,39 @@ const fetchValues=(attrs, ...nodeLists)=>{
         let dataObj= {};// creating an empty object to fill the data
 
         //2nd loop fetches data for each repeators value or attributes
-        for(let j=0; j< elemattrsCount; j++){
+        for(let j=0; j < elemAttrsCount; j++){
             //setting the key name for the object and fill it with data
-            dataObj['${attrs[j]}'] = nodeLists[j][i].value;
+            dataObj[attrs[j]] = nodeLists[j][i].value;
         }
         tempDataArr.push(dataObj);
     }
     return tempDataArr;
-}
+};
 
-const getUserInputs=()=>{
+const getUserInputs = () => {
 
-    let achievementsTitleElem= document.querySelectorAll('.achieve-title'),
-        achievementsDescrElem= document.querySelectorAll('.achieve-description');
+    let achievementsTitleElem= document.querySelectorAll('.achieve_title'),
+        achievementsDescrElem= document.querySelectorAll('.achieve_description');
     
     // experience
-    let expTitleElem= document.querySelectorAll('.exper-title'),
-        exporganizationElem= document.querySelectorAll('.exper-description'),
-        expLocationElem= document.querySelectorAll('.exper-loc'),
-        expStartDateElem= document.querySelectorAll('.exp-start-date'),
-        expEndDateElem= document.querySelectorAll('.exp-end-date'),
-        expDescriptionElem= document.querySelectorAll('.exper-descriptions');
+    let expTitleElem= document.querySelectorAll('.exper_title'),
+        exporganizationElem= document.querySelectorAll('.exper_description'),
+        expLocationElem= document.querySelectorAll('.exper_loc'),
+        expStartDateElem= document.querySelectorAll('.exp_start_date'),
+        expEndDateElem= document.querySelectorAll('.exp_end_date'),
+        expDescriptionElem= document.querySelectorAll('.exper_descriptions');
 
     // education
-    let eduSchoolElem= document.querySelectorAll('.edu-school'),
-        eduDegreeElem = document.querySelectorAll('.edu-degree'),
-        eduCityElem= document.querySelectorAll('.edu-city'),
-        eduStartDateElem= document.querySelectorAll('.edu-start-date'),
-        eduGraduationDateElem= document.querySelectorAll('.edu-end-date'),
-        eduDescriptionElem= document.querySelectorAll('.edu-description');
+    let eduSchoolElem= document.querySelectorAll('.edu_school'),
+        eduDegreeElem = document.querySelectorAll('.edu_degree'),
+        eduCityElem= document.querySelectorAll('.edu_city'),
+        eduStartDateElem= document.querySelectorAll('.edu_start_date'),
+        eduGraduationDateElem= document.querySelectorAll('.edu_end_date'),
+        eduDescriptionElem= document.querySelectorAll('.edu_description');
     
-    let projTitleElem= document.querySelectorAll('.proj-title'),
-        projLinkElem= document.querySelectorAll('.proj-link'),
-        projDescriptionElem= document.querySelectorAll('.proj-description');
+    let projTitleElem= document.querySelectorAll('.proj_title'),
+        projLinkElem= document.querySelectorAll('.proj_link'),
+        projDescriptionElem= document.querySelectorAll('.proj_description');
 
     let skillElem = document.querySelectorAll('.skill');
 
@@ -101,7 +101,7 @@ const getUserInputs=()=>{
         'Email'));
     addressElem.addEventListener('keyup',(e)=> validateFormData(e.target, validType.ANY,
         'Address'));
-    designationElem.addEventListener('keyup',(e)=> validateFormData(e.target, validType.ANY,
+    designationElem.addEventListener('keyup',(e)=> validateFormData(e.target, validType.TEXT,
         'Designation'));
 
     achievementsTitleElem.forEach(item => item.addEventListener('keyup',(e)=> validateFormData(e.target, 
@@ -148,10 +148,10 @@ const getUserInputs=()=>{
         phoneNo: phoneElem.value,
         email: emailElem.value,
         summary: summaryElem.value,
-        achievements: fetchValues(['achieve-title', 'achieve-description'], achievementsTitleElem, achievementsDescrElem),
-        experiences: fetchValues(['exper-title', 'exper-description', 'exper-loc', 'exp-start-date', 'exp-end-date', 'exper-descriptions'], expTitleElem, exporganizationElem, expLocationElem, expStartDateElem, expEndDateElem, expDescriptionElem),
-        educations: fetchValues(['edu-school', 'edu-degree', 'edu-city', 'edu-start-date', 'edu-end-date', 'edu-description'],eduSchoolElem, eduDegreeElem, eduCityElem, eduStartDateElem, eduGraduationDateElem, eduDescriptionElem),
-        projects: fetchValues(['proj-title', 'proj-link', 'proj-description'],projTitleElem, projLinkElem, projDescriptionElem),
+        achievements: fetchValues(['achieve_title', 'achieve_description'], achievementsTitleElem, achievementsDescrElem),
+        experiences: fetchValues(['exper_title', 'exper_description', 'exper_loc', 'exp_start_date', 'exp_end_date', 'exper_descriptions'], expTitleElem, exporganizationElem, expLocationElem, expStartDateElem, expEndDateElem, expDescriptionElem),
+        educations: fetchValues(['edu_degree', 'edu_school', 'edu_city', 'edu_start_date', 'edu_end_date', 'edu_description'],eduDegreeElem, eduSchoolElem, eduCityElem, eduStartDateElem, eduGraduationDateElem, eduDescriptionElem),
+        projects: fetchValues(['proj_title', 'proj_link', 'proj_description'],projTitleElem, projLinkElem, projDescriptionElem),
         skills: fetchValues(['skill'], skillElem)
     }
 
@@ -159,33 +159,32 @@ const getUserInputs=()=>{
 
 function validateFormData(elem, elemType, elemName) {
     // checking for text string and non empty string
-        if(elemType==validType.TEXT){
+        if(elemType == validType.TEXT){
             if(!strRegex.test(elem.value) || elem.value.trim().length == 0) 
                 addErrMsg(elem,elemName);
             else removeErrMsg(elem);
         }
         
         // checking for only text string
-        if(elemType = validType.TEXT_EMP){
+        if(elemType == validType.TEXT_EMP){
             if(!strRegex.test(elem.value)) addErrMsg(elem, elemName);
             else removeErrMsg(elem);
         }
     
         // checking for email
-        if(elemType== validType.EMAIL){
-            if(!emailRegex.test(elem.value) || elem.value.trim().length == 0) addErrMsg
-                (elem, elemName);
+        if(elemType == validType.EMAIL){
+            if(!emailRegex.test(elem.value) || elem.value.trim().length == 0) addErrMsg(elem, elemName);
                 else removeErrMsg(elem);
         }
    
         // checking for phone number
-    if(elemType = validType.PHONENO) {
-            if(!phoneRegex.test(elem.value) || elem.value.trim().length== 0) addErrMsg
-            (elem, elemName);
+    if(elemType == validType.PHONENO) {
+            if(!phoneRegex.test(elem.value) || elem.value.trim().length== 0) 
+            addErrMsg(elem, elemName);
             else removeErrMsg(elem);
         }
     // checking for only empty
-    if(elemType=validType.ANY){
+    if(elemType == validType.ANY){
             if(elem.value.trim().length==0) addErrMsg(elem,elemName);
             else removeErrMsg(elem);
     }
@@ -194,12 +193,12 @@ function validateFormData(elem, elemType, elemName) {
     
     // adding the invalid text
     function addErrMsg(formElem, formElemName) {
-      formElem.nextElementSibling.innerHTML = '${formElemName} is invalid';
+      formElem.nextElementSibling.innerHTML = (formElemName + ' is invalid');
     }
     
     // removing the invalid text
     function removeErrMsg(formElem){
-    formElem.nextElementSibling.innerHTML = "";
+    formElem.nextElementSibling.innerHTML = "" ;
     }
 
 // show the list data
@@ -208,10 +207,11 @@ const showListData= (listData, listContainer) => {
         listData.forEach(listItem => {
             let itemElem = document.createElement('div');
             itemElem.classList.add('preview-item');
+
             for(const key in listItem){
                 let subItemElem= document.createElement('span');
                 subItemElem.classList.add('preview-item-val');
-                subItemElem.innerHTML = '${listItem[key]}';
+                subItemElem.innerHTML = listItem[key];
                 itemElem.appendChild(subItemElem);
             }
             listContainer.appendChild(itemElem);
@@ -222,7 +222,7 @@ const showListData= (listData, listContainer) => {
     const displayCV=(userData) => {
         nameDsp.innerHTML = userData.firstname + " " + userData.middlename + " " + userData.
         lastname;
-        phonenoDsp.innerHTML = userData.phoneno;
+        phonenoDsp.innerHTML = userData.phoneNo;
         emailDsp.innerHTML = userData.email;
         addressDsp.innerHTML = userData.address;
         designationDsp.innerHTML = userData.designation;
@@ -234,8 +234,20 @@ const showListData= (listData, listContainer) => {
         showListData(userData.experiences, experiencesDsp);
         }
 
-const generateCV=()=>{
+const generateCV = () => {
     let userData= getUserInputs();
     displayCV(userData);
     console.log(userData);
+}
+
+function previewImage(){
+    let oFReader= new FileReader();
+    oFReader.readAsDataURL(imgElem.files[0]);
+    oFReader.onload = function(ofEvent){
+        imageDsp.src = ofEvent.target.result;
+    }
+}
+
+function printCV(){
+    window.print();
 }
